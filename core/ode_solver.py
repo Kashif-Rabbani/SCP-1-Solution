@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Defines the class OdeSolver
+Definition of class OdeSolver
 @author: kashifrabbani@cs.aau.dk
+@author: imranh@cs.aau.dk
 """
 
 
@@ -11,8 +12,8 @@ class OdeSolver:
     OdeSolver class simulates a solution for Lorenz Attractor Ordinary Differential Equation Solver using Euler
     approximation approach provided a set of variable values and initial values for x,y,z.
     """
-    __time_interval = 0.01
-    __num_of_steps = 50000
+    __time_interval = 0.02
+    __num_of_steps = 10000
 
     def __init__(self, sigma_val, beta_val, rho_val):
         """
@@ -22,7 +23,7 @@ class OdeSolver:
         self.__beta = beta_val
         self.__rho = rho_val
 
-    def set_t_delta(self, t):
+    def set_time_interval(self, t):
         """
         Set the value for the t_delta
         """
@@ -78,7 +79,7 @@ class OdeSolver:
         z_val = [z_current]
 
         # Iterate through 1 through N (N=num)
-        for val in range(1, self.__num_of_steps):
+        for _ in range(1, self.__num_of_steps):
             # Calculate new x,y,z values
             x = self.__compute_x(x_current, y_current)
             y = self.__compute_y(x_current, y_current, z_current)
@@ -101,31 +102,30 @@ class OdeSolver:
         result['z_val'] = z_val
         return result
 
-    # def to_string(self):
-    #     """
-    #     Convert solver to string
-    #     """
-    #
-    #     ret = "sigma=" + str(self.__sigma) + "\nbeta=" + str(self.__beta) + "\nrho=" + str(self.__rho) + "\n"
-    #     if self.__interval != 0.01:
-    #         ret = ret + "interval=" + str(self.__interval) + "\n"
-    #     if self.__num != 50000:
-    #         ret = ret + "num=" + str(self.__num)
-    #     return ret
-    #
-    # def __eq__(self, other):
-    #     """
-    #     Overrides equals method
-    #     """
-    #
-    #     if isinstance(other, self.__class__):
-    #         return self.__sigma == other.__sigma and self.__rho == other.__rho and self.__beta == other.__beta and self.__interval == other.__interval and self.__num == other.__num
-    #     else:
-    #         return False
-    #
-    # def __ne__(self, other):
-    #     """
-    #     Overrides not-equals method
-    #     """
-    #
-    #     return not self.__eq__(other)
+    def to_string(self):
+        """
+        Presenting ode_solver as string
+        """
+        solver_string = "Sigma = " + str(self.__sigma) + "\nBeta = " + str(self.__beta) + "\nRho = " + str(
+            self.__rho) + "\n"
+
+        if self.__time_interval != 0.01:
+            solver_string = solver_string + "Time Interval = " + str(self.__time_interval) + "\n"
+        if self.__time_interval != 10000:
+            solver_string = solver_string + "N = " + str(self.__time_interval)
+        return solver_string
+
+    def __eq__(self, other):
+        """
+        Overrides equals method
+        """
+        if isinstance(other, self.__class__):
+            return self.__sigma == other.__sigma and self.__rho == other.__rho and self.__beta == other.__beta and self.__time_interval == other.__time_interval and self.__num_of_steps == other.__num_of_steps
+        else:
+            return False
+
+    def __ne__(self, other):
+        """
+        Overrides not-equals method
+        """
+        return not self.__eq__(other)
