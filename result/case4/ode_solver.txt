@@ -1,0 +1,5 @@
+Sigma = 14
+Beta = 2.6666666666666665
+Rho = 28
+Time Interval = 0.02
+N = 0.02

@@ -12,8 +12,8 @@ import os
 import time
 from core import *
 
-
-directory = "../result/case1/"
+sys.path.append('../')
+directory = "../result/case2/"
 
 # Create a directory for this case in case it does not exist
 if not os.path.exists(directory):
@@ -21,11 +21,11 @@ if not os.path.exists(directory):
 
 # Initializing objects for file handler and plotter classes
 file_handler = ode_filehander.OdeFileHandler(directory)
-plotter = ode_plotter.OdePlotter("Case 1")
+plotter = ode_plotter.OdePlotter("Case 2")
 
-print("Initiated Case # 1 ...\n")
+print("Initiated Case # 2 ...\n")
 
-sol = ode_solver.OdeSolver(10, 8 / 3, 6)
+sol = ode_solver.OdeSolver(10, 8 / 3, 16)
 n = 10000
 t = 0.02
 print("N: " + str(n) + ", Time Interval: " + str(t) + ", and x , y, z = 1")

@@ -1,13 +1,17 @@
 # from mpl_toolkits import mplot3d
+from math import hypot
+
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
-from math import hypot
+
 matplotlib.use('Agg')
 
 
 class OdePlotter:
-
+    """
+      OdePlotter is
+      """
     def __init__(self, c):
         self.__case = c
 
@@ -40,22 +44,23 @@ class OdePlotter:
 
         dists = []
 
-        # Calculating distance between xyz values and saving them in a list
+        # Calculating distance between xyz values
         for i in range(N - 1):
             a = np.array((x[i], y[i], z[i]))
             b = np.array((x[i + 1], y[i + 1], z[i + 1]))
+            # Computing norm using numpy.linalg.norm method
             dist = np.linalg.norm(a - b)
             dists.append(dist)
 
-        # Calculating the maximum distance in a list of distances (for normalization)
-        max_val = max(dists)
+        # Computing the maximum distance for normalization
+        max_distance = max(dists)
 
-        # For each point-pair, plot the line with color depending on the distance
+        # Plotting points based on their distance in a different color
+        # Got an idea from an answer to the question given on the stack overflow:
+        # https://stackoverflow.com/questions/15617207/line-colour-of-3d-parametric-curve-in-pythons-matplotlib-pyplot
         for i in range(N - 1):
             dist = dists[i]
-            rgb_to_deduct = dist / max_val
-            c = (0.3, 1 - rgb_to_deduct, 0.7)
-            ax.plot(x[i:i + 2], y[i:i + 2], z[i:i + 2], color=c, linewidth=1)
+            ax.plot(x[i:i + 2], y[i:i + 2], z[i:i + 2], color=(0.29, 1 - (dist / max_distance), 0.75), linewidth=1)
 
         # Setting the labels for axis
         ax.set_xlabel('x-axis')
@@ -93,7 +98,8 @@ class OdePlotter:
 
     def two_d_plot_color(self, _dict, plot_axes):
         figure = plt.figure(figsize=(10, 10))
-        figure.suptitle(self.__case + ": 2D Plot with colors on " + str(plot_axes) + " axes", fontsize=20, fontweight='bold')
+        figure.suptitle(self.__case + ": 2D Plot with colors on " + str(plot_axes) + " axes", fontsize=20,
+                        fontweight='bold')
 
         if plot_axes == 'xy':
             a_coordinates = _dict['x_val']
@@ -117,22 +123,25 @@ class OdePlotter:
 
         dists = []
 
-        # Calculate distances between points and put them in a list
+        # Computing Euclidean distance between points
         for i in range(N - 1):
             a = [a_coordinates[i], b_coordinates[i]]
             b = [a_coordinates[i + 1], b_coordinates[i + 1]]
+            # The math.hypot() method returns the Euclidean norm.
+            # The Euclidian norm is the distance from the origin to the given coordinates.
             dist = hypot(a[0] - b[0], a[1] - b[1])
             dists.append(dist)
 
-        # Calculate the maximum distance (used for normalization)
-        max_val = max(dists)
+        # Computing the maximum distance for normalization
+        max_distance = max(dists)
 
-        # For each point-pair, plot the line with color depending on the distance
+        # Plotting points based on their distance in a different color
+        # Got an idea from an answer to the question given on the stack overflow:
+        # https://stackoverflow.com/questions/15617207/line-colour-of-3d-parametric-curve-in-pythons-matplotlib-pyplot
         for i in range(N - 1):
             dist = dists[i]
-            rgb_to_deduct = dist / max_val
-            c = (0.3, 1 - rgb_to_deduct, 0.7)
-            plt.plot(a_coordinates[i:i + 2], b_coordinates[i:i + 2], color=c, linewidth=1)
+            plt.plot(a_coordinates[i:i + 2], b_coordinates[i:i + 2], color=(0.29, 1 - (dist / max_distance), 0.75),
+                     linewidth=1)
 
         # Setting the labels for axis
         plt.xlabel(x_axis_label)

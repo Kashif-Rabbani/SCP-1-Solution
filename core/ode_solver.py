@@ -115,17 +115,3 @@ class OdeSolver:
             solver_string = solver_string + "N = " + str(self.__time_interval)
         return solver_string
 
-    def __eq__(self, other):
-        """
-        Overrides equals method
-        """
-        if isinstance(other, self.__class__):
-            return self.__sigma == other.__sigma and self.__rho == other.__rho and self.__beta == other.__beta and self.__time_interval == other.__time_interval and self.__num_of_steps == other.__num_of_steps
-        else:
-            return False
-
-    def __ne__(self, other):
-        """
-        Overrides not-equals method
-        """
-        return not self.__eq__(other)
