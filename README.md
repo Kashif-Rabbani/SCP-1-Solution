@@ -12,9 +12,10 @@ Execute the following shell script file:
 test_cases/execute_all_cases.sh
 ```
 
-It will run all the test cases and show the following output:
-
+It will run all the test cases and show the following output using the given values of each test case.
+![img.png](img.png)
 ```
+
 Executing case 1.
 Initiated Case # 1 ...
 
@@ -31,6 +32,7 @@ Plotting 2D - xz...
 Time elapsed: 9035.807 ms
 Plotting 2D - yz...
 Time elapsed: 8564.953 ms
+
 Executing case 2.
 Initiated Case # 2 ...
 
@@ -47,6 +49,7 @@ Plotting 2D - xz...
 Time elapsed: 9153.993 ms
 Plotting 2D - yz...
 Time elapsed: 10330.760 ms
+
 Executing case 3.
 Initiated Case # 3 ...
 
@@ -63,6 +66,7 @@ Plotting 2D - xz...
 Time elapsed: 9243.750 ms
 Plotting 2D - yz...
 Time elapsed: 10348.818 ms
+
 Executing case 4.
 Initiated Case # 4 ...
 
@@ -79,6 +83,7 @@ Plotting 2D - xz...
 Time elapsed: 9627.141 ms
 Plotting 2D - yz...
 Time elapsed: 10469.431 ms
+
 Executing case 5.
 Initiated Case # 5 ...
 
