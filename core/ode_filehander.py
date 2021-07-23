@@ -31,4 +31,4 @@ class OdeFileHandler:
         pass
 
     def ode_plot_figure_saver(self, fig, filename):
-        fig.savefig(self.__directory + filename)
+        fig.savefig(self.__directory + filename, bbox_inches='tight')

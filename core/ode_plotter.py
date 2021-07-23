@@ -98,8 +98,7 @@ class OdePlotter:
 
     def two_d_plot_color(self, _dict, plot_axes):
         figure = plt.figure(figsize=(10, 10))
-        figure.suptitle(self.__case + ": 2D Plot with colors on " + str(plot_axes) + " axes", fontsize=20,
-                        fontweight='bold')
+        figure.suptitle(self.__case + ": 2D Plot with colors on " + str(plot_axes) + " axes", fontsize=20, fontweight='bold')
 
         if plot_axes == 'xy':
             a_coordinates = _dict['x_val']
