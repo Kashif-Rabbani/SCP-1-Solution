@@ -5,6 +5,8 @@
 2. Imran Riaz - imranh@cs.aau.dk
 
 
+#### Project Documentation:
+We recommend you to read the documentation of the project (PDF file) submitted with the project on moodle.
 
 #### How to run the test cases?
 Execute the following shell script file:
@@ -12,10 +14,11 @@ Execute the following shell script file:
 test_cases/execute_all_cases.sh
 ```
 
-It will run all the test cases and show the following output using the given values of each test case.
+It will run all the test cases using the following parameter values of each test case:
 ![img.png](img.png)
-```
 
+You will see the following output on console:
+```
 Executing case 1.
 Initiated Case # 1 ...
 
