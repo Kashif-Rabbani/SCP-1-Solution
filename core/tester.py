@@ -15,6 +15,9 @@ sys.path.append('../')
 
 
 class OdeSolverTester(unittest.TestCase):
+    """
+    OdeSolverTester class to test the desired functionalities of each method in OdeSolver class
+    """
     solver_obj = ode_solver.OdeSolver(1, 2, 3)
 
     def test_to_initiate_ode_solver(self):

@@ -3,7 +3,6 @@
 """
 Definition of class OdeSolver
 @author: kashifrabbani@cs.aau.dk
-@author: imranh@cs.aau.dk
 """
 
 

@@ -103,4 +103,9 @@ Time elapsed: 10370.544 ms
 
 ```
 
-Once the execution is completed, you can check the [Results](https://github.com/Kashif-Rabbani/SCP-1-Solution/tree/main/result) directory to see the output of each test case.
+Once the execution is completed, you can check the results directory to see the output of each test case.
+- On Github, click [here](https://github.com/Kashif-Rabbani/SCP-1-Solution/tree/main/result) to go to results directory
+- Locally you can look for the following directory path:
+    ```sh
+        SCP-1-Solution/result
+     ```

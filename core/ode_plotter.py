@@ -1,4 +1,10 @@
-# from mpl_toolkits import mplot3d
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Definition of class OdeSolver
+@author: imranh@cs.aau.dk
+"""
+
 from math import hypot
 
 import matplotlib
@@ -10,12 +16,19 @@ matplotlib.use('Agg')
 
 class OdePlotter:
     """
-      OdePlotter is
-      """
+      OdePlotter class defines multiple functions for two and three dimensional plots
+    """
+
     def __init__(self, c):
+        """
+        Constructor to set the value for the argument c: case
+        """
         self.__case = c
 
     def three_d_plot(self, _dict):
+        """
+        Three dimensional plotter for given x,y, and z coordinates.
+        """
         figure = plt.figure(figsize=(10, 10))
         figure.suptitle(self.__case + ": 3d Plot", fontsize=20, fontweight='bold')
         ax = plt.axes(projection="3d")
@@ -33,6 +46,9 @@ class OdePlotter:
         return figure
 
     def three_d_plot_color(self, _dict):
+        """
+         Three dimensional color plotter for given x,y, and z coordinates.
+        """
         figure = plt.figure(figsize=(10, 10))
         figure.suptitle(self.__case + ": 3d Plot with colors", fontsize=20, fontweight='bold')
         ax = plt.axes(projection="3d")
@@ -69,6 +85,9 @@ class OdePlotter:
         return figure
 
     def two_d_plot(self, _dict, plot_axes):
+        """
+        Two dimensional plotter for given x,y, and z coordinates.
+        """
         figure = plt.figure(figsize=(10, 10))
         figure.suptitle(self.__case + ": 2D Plot on " + str(plot_axes) + " axes", fontsize=20, fontweight='bold')
         if plot_axes == 'xy':
@@ -97,8 +116,12 @@ class OdePlotter:
         return figure
 
     def two_d_plot_color(self, _dict, plot_axes):
+        """
+         Two dimensional color plotter for given x,y, and z coordinates.
+        """
         figure = plt.figure(figsize=(10, 10))
-        figure.suptitle(self.__case + ": 2D Plot with colors on " + str(plot_axes) + " axes", fontsize=20, fontweight='bold')
+        figure.suptitle(self.__case + ": 2D Plot with colors on " + str(plot_axes) + " axes", fontsize=20,
+                        fontweight='bold')
 
         if plot_axes == 'xy':
             a_coordinates = _dict['x_val']
