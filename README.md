@@ -2,7 +2,7 @@
 
 #### Authors:
 1. Kashif Rabbani - kashifrabbani@cs.aau.dk
-2. Imran Riaz - imranh@cs.aau.dk
+2. Imran Riaz Hasrat - imranh@cs.aau.dk
 
 
 #### Project Documentation:
